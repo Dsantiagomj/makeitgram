@@ -1,0 +1,18 @@
+<% @posts.each do |post| %>
+<div class="post">
+  <div class="post__header">
+    <p>&nbsp;</p>
+  </div>
+  <div class="post__photo">
+    <p>&nbsp;</p>
+  </div>
+  <div class="post__body">
+    <div class="post__description">
+      <%= post.description %>
+    </div>
+    <div class="post__published">
+      <%= time_ago_in_words post.created_at %>
+    </div>
+  </div>
+</div>
+<% end %>
