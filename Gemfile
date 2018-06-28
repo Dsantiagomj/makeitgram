@@ -66,3 +66,4 @@ gem 'therubyracer', '~> 0.12.3'
 
 gem 'bootstrap', '~> 4.1', '>= 4.1.1'
 gem 'jquery-rails'
+gem "paperclip", "~> 6.0.0"
