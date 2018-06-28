@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.select(:description, :created_at).order(created_at: :desc).limit(10)
+    @posts = Post
+              .select(:description, :created_at)
+              .order(created_at: :desc)
+              .limit(10)
   end
 
   def new
@@ -14,6 +17,10 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   private
