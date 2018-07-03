@@ -3,4 +3,5 @@ class Post < ApplicationRecord
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
   validates :photo, attachment_presence: true
   validates :description, presence: true
+  belongs_to :user
 end
