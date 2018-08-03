@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.latest(10)
+    @comment = Comment.new
   end
 
   def new
@@ -22,6 +23,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
   end
 
   private

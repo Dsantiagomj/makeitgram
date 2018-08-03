@@ -1,4 +1,4 @@
-<div class="post">
+<div class="post" data-id="<%= item.id%>">
   <div class="post__header">
     <p><%= link_to item.user.username, profile_path(item.user.username) %></p>
   </div>
@@ -15,8 +15,20 @@
     <div class="post__description">
       <%= item.description %>
     </div>
+    <div class="post__comments">
+      <% item.comments.each do |comment| %>
+        <%= render partial: 'comments/comment', locals: { comment: comment } %>
+      <% end %>
+    </div>
     <div class="post__published">
       <%= time_ago_in_words item.created_at %>
     </div>
+    <% if user_signed_in? %>
+      <div class="comment__form">
+      <%= form_with(model: @comment, url: comments_path(item.id)) do |f| %>
+        <%= f.text_field :text, placeholder: 'Add comment' %>
+      <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

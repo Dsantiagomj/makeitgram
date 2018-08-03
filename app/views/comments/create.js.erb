@@ -1,0 +1,4 @@
+var $post = $('.post[data-id="<%= @comment.post.id %>"]');
+$post.find('.post__comments')
+  .append('<%= j(render "comment", comment: @comment) %>');
+$post.find('.comment__form input').val('');
